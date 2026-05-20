@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+  push:
+    branches:
+      - main
+      - develop
+      - "feature/**"
+      - "release/**"
+
+jobs:
+  npm-checks:
+    uses: leeduybinh/reusable-workflow-lab/.github/workflows/reusable-node-ci.yml@main
+    with:
+      node-version: "20"
+      run-script: ci
